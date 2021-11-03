@@ -54,7 +54,7 @@ Effects
 Write a package path on manifest.json
 
 ```
-"jp.supertask.shaderlibcore": "https://github.com/supertask/Cinema.git?path=/Packages/jp.supertask.cinema.post-processing",
+"jp.supertask.cinema.post-processing": "https://github.com/supertask/Cinema.git?path=/Packages/jp.supertask.cinema.post-processing",
 ```
 
 

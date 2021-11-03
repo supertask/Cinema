@@ -22,7 +22,6 @@ Shader "Hidden/Cinema/PostProcess/Reflection"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
-            //#include "Packages/jp.supertask.shaderlibcore/Shader/Lib/Noise/Noise.hlsl"
 
             struct Attributes
             {

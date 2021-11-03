@@ -45,7 +45,7 @@ void DistortionUV_float(
 	float timeScale,
 	out float2 distortedUV)
 {
-	float3 uv1 = float3(uv * distortionNoiseScale, _Time.x * 5);
+	float3 uv1 = float3(uv * distortionNoiseScale, _Time.x * timeScale);
 	float3 noise = snoise_grad(uv1 + distortionNoisePosition);
 
 	distortedUV = getRotationUV(uv, noise.x, noise.y * distortionPower);

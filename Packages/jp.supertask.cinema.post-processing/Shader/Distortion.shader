@@ -66,7 +66,6 @@ Shader "Hidden/Cinema/PostProcess/Distortion"
                 DistortionUV_float(uv,
                     _DistortionNoiseScale, _DistortionNoisePosition, _DistortionPower,
                     _TimeScale,
-
                     distortedUV);
                 //return float4(distortedUV, 0, 1);
                 float4 color = LOAD_TEXTURE2D_X(_InputTexture, distortedUV * _ScreenSize.xy);
