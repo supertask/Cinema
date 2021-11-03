@@ -250,5 +250,10 @@ namespace Cinema.PostProcessing.Manager {
         {
             this.KeyCheck();
         }
+        
+        private void OnDestroy()
+        {
+            this.ResetEffect();
+        }
     }
 }
