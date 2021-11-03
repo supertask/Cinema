@@ -65,6 +65,13 @@
         "com.unity.render-pipelines.core": "11.0.0"
       }
     },
+    "jp.keijiro.danish-statues": {
+      "version": "0.0.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
     "jp.supertask.cinema.post-processing": {
       "version": "file:jp.supertask.cinema.post-processing",
       "depth": 0,
