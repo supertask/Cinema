@@ -1,0 +1,20 @@
+{
+  "author": {
+    "name": "Tasuku Takahashi"
+  },
+  "dependencies": {
+    "com.unity.render-pipelines.high-definition": "11.0.0"
+  },
+  "description": "Cinema is a collection of custom post-processing effects for Unity's High Definition Render Pipeline (HDRP) such as Keijiro's Kino.",
+  "displayName": "Cinema",
+  "keywords": [
+    "unity",
+    "shader"
+  ],
+  "license": "MIT",
+  "name": "jp.supertask.cinema.post-processing",
+  "repository": "github:supertask/Cinema",
+  "unity": "2021.1",
+  "unityRelease": "17f1",
+  "version": "1.0.0"
+}
