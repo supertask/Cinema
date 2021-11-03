@@ -142,7 +142,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   power:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
     min: 0
     max: 100
 --- !u!114 &-678666130934084488
@@ -291,8 +291,8 @@ MonoBehaviour:
     min: 0
     max: 1
   glitchScale:
-    m_OverrideState: 0
-    m_Value: 55
+    m_OverrideState: 1
+    m_Value: 31
     min: 0
     max: 150
 --- !u!114 &4405347659257182059

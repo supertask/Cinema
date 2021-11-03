@@ -488,7 +488,7 @@ MonoBehaviour:
   negativeEffectTime: 0.125
   maxMosaiceScale: 64
   maxRadiationBlurPower: 64
-  maxGlitchIntensity: 0.95
+  maxGlitchIntensity: 0.98
   maxDistortionPower: 0.15
   maxRGBShiftPower: 54
 --- !u!1 &1163458748
