@@ -305,21 +305,21 @@ MonoBehaviour:
   beforeTAACustomPostProcesses: []
   beforePostProcessCustomPostProcesses: []
   afterPostProcessCustomPostProcesses:
-  - Cinema.PostProcessing.Distortion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - Cinema.PostProcessing.Distortion, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
-  - Cinema.PostProcessing.Negative, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - Cinema.PostProcessing.Mosaic, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
-  - Cinema.PostProcessing.Mosaic, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - Cinema.PostProcessing.Negative, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
-  - Cinema.PostProcessing.RadiationBlur, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - Cinema.PostProcessing.RadiationBlur, Cinema.Postprocessing, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  - Cinema.PostProcessing.RandomInvert, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
-  - Cinema.PostProcessing.RandomInvert, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - Cinema.PostProcessing.RectBlockGlitch, Cinema.Postprocessing, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  - Cinema.PostProcessing.Reflection, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
-  - Cinema.PostProcessing.RectBlockGlitch, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
-  - Cinema.PostProcessing.Reflection, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
-  - Cinema.PostProcessing.RGBShift, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - Cinema.PostProcessing.RGBShift, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   virtualTexturingSettings:
     streamingCpuCacheSizeInMegaBytes: 256

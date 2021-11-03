@@ -142,7 +142,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   power:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
     min: 0
     max: 100
 --- !u!114 &-678666130934084488
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   scale:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
     min: 0
     max: 100
   isCircle:
