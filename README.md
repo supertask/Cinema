@@ -27,9 +27,6 @@ Effects
 
 ![screenshot](./images/radiationBlur.gif)
 
-### Rect Block Glitch
-
-![screenshot](./images/rectBlockGlitch.gif)
 
 ### Distortion
 
@@ -46,11 +43,9 @@ Effects
 
 ### Negative
 
-![screenshot](./images/negative.jpg)
+### Rect Block Glitch
 
 ### Reflection
-
-![screenshot](./images/reflection.jpg)
 
 
 ## How to install
@@ -68,6 +63,19 @@ Write a package path on manifest.json
 Define custom post processing orders to make them take effect in the pipeline.
 
 ![screenshot](./images/postProcessingSetup.jpg)
+
+
+## Key binders
+
+- F1 key: Mosaic
+- F2 key: Radiation Blur
+- F3 key: Rect Block Glitch
+- F4 key: Distortion
+- F5 key: RGB Shift
+- F6 key: Random Invert
+- F7 key: Negative
+- F8 key: Reflection (bottom to top)
+- F9 key: Reflection (right to left)
 
 ## Acknowledge
 
