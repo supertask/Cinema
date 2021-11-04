@@ -37,7 +37,7 @@ Effects
 
 ### RGB Shift
 
-![screenshot](./images/RGBShift.gif)
+![screenshot](./images/rgbShift.gif)
 
 
 ### Random invert
