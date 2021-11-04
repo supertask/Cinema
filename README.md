@@ -5,10 +5,7 @@ Cinema
 
 Cinema is **HDRP version of kaiware007's shader** which is on the repo, [UnityVJShaderSlide20181108](https://github.com/kaiware007/UnityVJShaderSlide20181108).
 
-
-![test](https://github.com/supertask/Cinema/raw/main/images/cinema_post_processing.mov)
-
-https://github.com/supertask/Cinema/raw/main/images/cinema_post_processing.mov
+https://user-images.githubusercontent.com/5733604/140325263-c5237e68-3aaf-4cc3-80e7-855ec21dfb39.mov
 
 
 [HDRP]:
