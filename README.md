@@ -5,7 +5,7 @@ Cinema
 
 Cinema is **HDRP version of kaiware007's shader** which is on the repo, [UnityVJShaderSlide20181108](https://github.com/kaiware007/UnityVJShaderSlide20181108).
 
-[Cienma1](https://user-images.githubusercontent.com/5733604/140555914-b6d9b8a5-3fc3-48e4-b8cb-c2d566615cc0.mov)[Cienma2](https://user-images.githubusercontent.com/5733604/140556040-0d307dac-6d9e-402c-837c-a92085a0ba2a.mov)
+[Cienma](https://user-images.githubusercontent.com/5733604/140555914-b6d9b8a5-3fc3-48e4-b8cb-c2d566615cc0.mov)
 
 
 
@@ -51,6 +51,9 @@ Noise distortion & Barrel distortion
 
 ### Reflection
 
+## Demo
+
+[Combined Cienma](https://user-images.githubusercontent.com/5733604/140556040-0d307dac-6d9e-402c-837c-a92085a0ba2a.mov)
 
 ## How to install
 
