@@ -15,12 +15,10 @@ namespace Cinema.PostProcessing.Manager {
 
         public VolumeProfile  volumeProfile;
         private Mosaic mosaic;
-        private Negative negative;
         private Reflection reflection;
-        //private EdgeDetection edgeDetection;
         private RadiationBlur radiationBlur;
         private RectBlockGlitch glitch;
-        private Distortion distorion;
+        private Distortion distortion;
         private RGBShift rgbShift;
         private RandomInvert randomInvert;
 
@@ -31,48 +29,49 @@ namespace Cinema.PostProcessing.Manager {
         [SerializeField]
         KeyCode glitchKey = KeyCode.F3;
         [SerializeField]
-        KeyCode distortionKey = KeyCode.F4;
+        KeyCode noiseDistortionKey = KeyCode.F4;
         [SerializeField]
-        KeyCode rgbShiftKey = KeyCode.F5;
+        KeyCode barrelDistortionKey = KeyCode.F5;
         [SerializeField]
-        KeyCode randomInvertKey = KeyCode.F6;
+        KeyCode rgbShiftKey = KeyCode.F6;
         [SerializeField]
-        KeyCode negativeKey = KeyCode.F7;
+        KeyCode randomInvertKey = KeyCode.F7;
 
         [SerializeField]
         KeyCode reflectionLRKey = KeyCode.F8;
         [SerializeField]
         KeyCode reflectionTBKey = KeyCode.F9;
-        //[SerializeField]
-        //KeyCode edgeDetectionKey = KeyCode.F5;
 
         public float effectTime = 0.25f;
-        public float negativeEffectTime = 0.125f;
+        public float barrelDistortionTime = 0.125f;
 
         public float maxMosaiceScale = 64;
         public float maxRadiationBlurPower = 64;
         public float maxGlitchIntensity = 0.95f;
-        public float maxDistortionPower = 0.15f;
+        public float maxNoiseDistortionPower = 0.15f;
+        public float maxBarrelDistortionPower = 3f;
         public float maxRGBShiftPower = 54;
         #endregion
 
-        bool isNegative = false;
-        //bool isEdgeDetect = false;
+        bool isBarrelDistortion = false;
 
         public void ResetEffect()
         {
             mosaic.isCircle.value = false;
-            negative.negativeRatio.value = 0f;
-            isNegative = false;
+            
             reflection.isHorizontal.value = false;
             reflection.isVertical.value = false;
-            //edgeDetection.enabled = true;
-            //edgeDetection.blend = 1;
-            //isEdgeDetect = false;
+            
             radiationBlur.power.value = 0;
+            
             glitch.intensity.value = 0;
-            distorion.power.value = 0;
+            
+            distortion.noiseDistortionPower.value = 0;
+            distortion.barrelDistortionPower.value = Vector2.zero;
+            isBarrelDistortion = false;
+
             rgbShift.power.value = 0;
+            
             randomInvert.startInvert.value = false;
             randomInvert.isInvert = false;
         }
@@ -88,22 +87,6 @@ namespace Cinema.PostProcessing.Manager {
             }
         }
 
-        IEnumerator ActionNegative()
-        {
-            float duration = negativeEffectTime;
-            float start = isNegative ? 1 : 0;
-            float end = 1f - start;
-            isNegative = !isNegative;
-
-            while (duration > 0f)
-            {
-                duration = Mathf.Max(duration - Time.deltaTime, 0);
-                negative.negativeRatio.value = Easing.Ease(EaseType.QuadOut, start, end, 1f - duration / negativeEffectTime);
-                yield return null;
-            }
-
-        }
-
         void ActionReflectionLR()
         {
             reflection.isHorizontal.value = !reflection.isHorizontal.value;
@@ -113,22 +96,6 @@ namespace Cinema.PostProcessing.Manager {
         {
             reflection.isVertical.value = !reflection.isVertical.value;
         }
-
-/*
-        IEnumerator ActionEdgeDetection()
-        {
-            float duration = effectTime;
-            float start = isEdgeDetect ? 0 : 1;
-            float end = 1f - start;
-            isEdgeDetect = !isEdgeDetect;
-            while (duration > 0f)
-            {
-                duration = Mathf.Max(duration - Time.deltaTime, 0);
-                edgeDetection.blend = Easing.Ease(EaseType.QuadOut, start, end, 1f - duration / effectTime);
-                yield return null;
-            }
-        }
-*/
 
         IEnumerator ActionRadiationBlur()
         {
@@ -152,13 +119,29 @@ namespace Cinema.PostProcessing.Manager {
             }
         }
 
-        IEnumerator ActionDistortion()
+        IEnumerator ActionNoiseDistortion()
         {
             float duration = effectTime;
             while (duration > 0f)
             {
                 duration = Mathf.Max(duration - Time.deltaTime, 0);
-                distorion.power.value = Easing.Ease(EaseType.QuadOut, maxDistortionPower, 0, 1f - duration / effectTime);
+                distortion.noiseDistortionPower.value = Easing.Ease(EaseType.QuadOut, maxNoiseDistortionPower, 0, 1f - duration / effectTime);
+                yield return null;
+            }
+        }
+
+        IEnumerator ActionBarrelDistortion()
+        {
+            float duration = barrelDistortionTime;
+            float start = isBarrelDistortion ? maxBarrelDistortionPower : 0;
+            float end = maxBarrelDistortionPower - start;
+            isBarrelDistortion = !isBarrelDistortion;
+
+            while (duration > 0f)
+            {
+                duration = Mathf.Max(duration - Time.deltaTime, 0);
+                float power = Easing.Ease(EaseType.QuadOut, start, end, 1f - duration / barrelDistortionTime);
+                distortion.barrelDistortionPower.value = new Vector2(power, power);
                 yield return null;
             }
         }
@@ -180,10 +163,6 @@ namespace Cinema.PostProcessing.Manager {
             {
                 StartCoroutine(ActionMosaic());
             }
-            if (Input.GetKeyDown(negativeKey))
-            {
-                StartCoroutine(ActionNegative());
-            }
 
             if (Input.GetKeyDown(reflectionLRKey))
             {
@@ -194,12 +173,6 @@ namespace Cinema.PostProcessing.Manager {
                 ActionReflectionTB();
             }
 
-/*
-            if (Input.GetKeyDown(edgeDetectionKey))
-            {
-                StartCoroutine(ActionEdgeDetection());
-            }
-*/
             if (Input.GetKeyDown(radiationBlurKey))
             {
                 StartCoroutine(ActionRadiationBlur());
@@ -208,9 +181,13 @@ namespace Cinema.PostProcessing.Manager {
             {
                 StartCoroutine(ActionGlitch());
             }
-            if (Input.GetKeyDown(distortionKey))
+            if (Input.GetKeyDown(noiseDistortionKey))
             {
-                StartCoroutine(ActionDistortion());
+                StartCoroutine(ActionNoiseDistortion());
+            }
+            if (Input.GetKeyDown(barrelDistortionKey))
+            {
+                StartCoroutine(ActionBarrelDistortion());
             }
             if (Input.GetKeyDown(rgbShiftKey))
             {
@@ -231,11 +208,10 @@ namespace Cinema.PostProcessing.Manager {
                 return;
             }
             if (mosaic == null) volumeProfile.TryGet<Mosaic>(out mosaic);
-            if (negative == null) volumeProfile.TryGet<Negative>(out negative);
             if (reflection == null) volumeProfile.TryGet<Reflection>(out reflection);
             if (radiationBlur == null) volumeProfile.TryGet<RadiationBlur>(out radiationBlur);
             if (glitch == null) volumeProfile.TryGet<RectBlockGlitch>(out glitch);
-            if (distorion == null) volumeProfile.TryGet<Distortion>(out distorion);
+            if (distortion == null) volumeProfile.TryGet<Distortion>(out distortion);
             if (rgbShift == null) volumeProfile.TryGet<RGBShift>(out rgbShift);
             if (randomInvert == null) volumeProfile.TryGet<RandomInvert>(out randomInvert);
         }

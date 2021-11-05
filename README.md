@@ -33,7 +33,11 @@ Effects
 
 ### Distortion
 
-![screenshot](./images/distortion.gif)
+### Noise distortion
+![screenshot](./images/noiseDistortion.gif)
+
+### Barrel distortion
+![screenshot](./images/barrelDistortion.gif)
 
 ### RGB Shift
 
@@ -43,8 +47,6 @@ Effects
 ### Random invert
 
 ![screenshot](./images/randomInvert.jpg)
-
-### Negative
 
 ### Rect Block Glitch
 
@@ -68,15 +70,22 @@ Define custom post processing orders to make them take effect in the pipeline.
 ![screenshot](./images/postProcessingSetup.jpg)
 
 
+## More effects?
+
+Use [Kino](https://github.com/keijiro/Kino) for edge, streak, and more image effects.
+
+I am planing to add more cinematic image effects in the future.. Check out the list [New Filters](https://github.com/supertask/Cinema/issues/2). And let me know incredible image effects you know.
+
+
 ## Key binders
 
 - F1 key: Mosaic
 - F2 key: Radiation Blur
 - F3 key: Rect Block Glitch
-- F4 key: Distortion
-- F5 key: RGB Shift
-- F6 key: Random Invert
-- F7 key: Negative
+- F4 key: Noise Distortion
+- F5 key: Barrel Distortion
+- F6 key: RGB Shift
+- F7 key: Random Invert
 - F8 key: Reflection (bottom to top)
 - F9 key: Reflection (right to left)
 
@@ -84,5 +93,6 @@ Define custom post processing orders to make them take effect in the pipeline.
 
 - kaiware007, UnityVJShaderSlide20181108, https://github.com/kaiware007/UnityVJShaderSlide20181108
 	- He is one of the super coders I know.
+- XJINE, Unity_ImageFilters, https://github.com/XJINE/Unity_ImageFilters 
 - Ian McEwan, Ashima Arts (Simplex noise)
 - Stefan Gustavson (Classic noise and others)

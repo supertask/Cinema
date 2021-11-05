@@ -17,24 +17,31 @@ namespace Cinema.PostProcessing
     [System.Serializable, VolumeComponentMenu("Post-processing/Cinema/Distortion")]
     public sealed class Distortion : CustomPostProcessVolumeComponent, IPostProcessComponent
     {
-        public ClampedFloatParameter scale = new ClampedFloatParameter(0.5f, 0, 1.0f);
-        public Vector3Parameter position = new Vector3Parameter(new Vector3(0,0,1));
-        public ClampedFloatParameter power = new ClampedFloatParameter(0, 0, 1.0f);
-        public ClampedFloatParameter timeScale = new ClampedFloatParameter(5, 0, 10.0f);
-
+        public ClampedFloatParameter noiseDistortionScale = new ClampedFloatParameter(0.5f, 0, 1.0f);
+        public Vector3Parameter noiseDistortionPosition = new Vector3Parameter(new Vector3(0,0,1));
+        public ClampedFloatParameter noiseDistortionPower = new ClampedFloatParameter(0, 0, 1.0f);
+        public ClampedFloatParameter noiseDistortionTimeScale = new ClampedFloatParameter(5, 0, 10.0f);
+        
+        public Vector2Parameter barrelDistortionPower = new Vector2Parameter(new Vector2(0, 0));
 
         Material _material;
 
         static class ShaderIDs
         {
-            internal static readonly int DistortionNoiseScale = Shader.PropertyToID("_DistortionNoiseScale");
-            internal static readonly int DistortionNoisePosition = Shader.PropertyToID("_DistortionNoisePosition");
-            internal static readonly int DistortionPower = Shader.PropertyToID("_DistortionPower");
-            internal static readonly int TimeScale = Shader.PropertyToID("_TimeScale");
+            internal static readonly int NoiseDistortionNoiseScale = Shader.PropertyToID("_NoiseDistortionScale");
+            internal static readonly int NoiseDistortionNoisePosition = Shader.PropertyToID("_NoiseDistortionPosition");
+            internal static readonly int NoiseDistortionPower = Shader.PropertyToID("_NoiseDistortionPower");
+            internal static readonly int NoiseDistortionTimeScale = Shader.PropertyToID("_NoiseDistortionTimeScale");
+
+            internal static readonly int BarrelDistortionPower = Shader.PropertyToID("_BarrelDistortionPower");
+
             internal static readonly int InputTexture = Shader.PropertyToID("_InputTexture");
         }
 
-        public bool IsActive() => _material != null && (power.value > 0);
+        public bool IsActive() => _material != null && (
+            (noiseDistortionPower.value > 0 && noiseDistortionScale.value > 0) ||
+            (barrelDistortionPower.value != Vector2.zero)
+        );
 
         public override CustomPostProcessInjectionPoint injectionPoint =>
         //    CustomPostProcessInjectionPoint.BeforePostProcess;
@@ -49,15 +56,22 @@ namespace Cinema.PostProcessing
         {
             if (_material == null) return;
 
-            // Invoke the shader.
-            _material.SetFloat(ShaderIDs.DistortionNoiseScale, scale.value);
-            _material.SetVector(ShaderIDs.DistortionNoisePosition, position.value);
-            _material.SetFloat(ShaderIDs.DistortionPower, power.value);
-            _material.SetFloat(ShaderIDs.TimeScale, timeScale.value);
+            // Noise distortion
+            _material.SetFloat(ShaderIDs.NoiseDistortionNoiseScale, noiseDistortionScale.value);
+            _material.SetVector(ShaderIDs.NoiseDistortionNoisePosition, noiseDistortionPosition.value);
+            _material.SetFloat(ShaderIDs.NoiseDistortionPower, noiseDistortionPower.value);
+            _material.SetFloat(ShaderIDs.NoiseDistortionTimeScale, noiseDistortionTimeScale.value);
+
+            // Barrel distortion
+            _material.SetVector(ShaderIDs.BarrelDistortionPower, barrelDistortionPower.value);
+
             _material.SetTexture(ShaderIDs.InputTexture, srcRT);
 
             // Shader pass number
-            var pass = 0;
+            int pass = 0;
+            if (noiseDistortionScale.value > 0 && noiseDistortionPower.value > 0) { pass = 0; }
+            if (barrelDistortionPower.value != Vector2.zero) { pass++; }
+            //Debug.Log("pass: " + pass);
 
             // Blit
             HDUtils.DrawFullScreen(cmd, _material, destRT, null, pass);

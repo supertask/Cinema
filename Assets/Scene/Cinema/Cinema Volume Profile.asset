@@ -180,10 +180,9 @@ MonoBehaviour:
   components:
   - {fileID: 7868650011930419699}
   - {fileID: -1031690443465666833}
-  - {fileID: 6463156460337904735}
+  - {fileID: 6291974711227730995}
   - {fileID: 8709714235974665491}
   - {fileID: 4405347659257182059}
-  - {fileID: 2267417580730592256}
   - {fileID: 9058102385735049142}
   - {fileID: 2329630629719974946}
   - {fileID: 1318538762555446084}
@@ -346,7 +345,7 @@ MonoBehaviour:
   isCircle:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &6463156460337904735
+--- !u!114 &6291974711227730995
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,24 +359,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   m_AdvancedMode: 0
-  scale:
+  noiseDistortionScale:
     m_OverrideState: 0
     m_Value: 0.5
     min: 0
     max: 1
-  position:
+  noiseDistortionPosition:
     m_OverrideState: 0
     m_Value: {x: 0, y: 0, z: 1}
-  power:
+  noiseDistortionPower:
     m_OverrideState: 1
     m_Value: 0
     min: 0
     max: 1
-  timeScale:
+  noiseDistortionTimeScale:
     m_OverrideState: 0
     m_Value: 5
     min: 0
     max: 10
+  barrelDistortionPower:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0}
 --- !u!114 &7868650011930419699
 MonoBehaviour:
   m_ObjectHideFlags: 3
