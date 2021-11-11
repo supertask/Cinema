@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8640660039633269315
+--- !u!114 &-7385407757357757825
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,19 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db8a0f38b1204b046b9e956a8be6235e, type: 3}
-  m_Name: RadiationBlur
+  m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
+  m_Name: VisualEnvironment
   m_EditorClassIdentifier: 
   active: 1
   m_AdvancedMode: 0
-  center:
-    m_OverrideState: 0
-    m_Value: {x: 0.5, y: 0.5}
-  power:
+  skyType:
     m_OverrideState: 1
     m_Value: 0
-    min: 0
-    max: 100
+  skyAmbientMode:
+    m_OverrideState: 0
+    m_Value: 0
+  fogType:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-7013381995553300511
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -51,26 +52,6 @@ MonoBehaviour:
     m_Value: 0
   easeType: 14
   isInvert: 0
---- !u!114 &-5138188050218079837
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f35bec62136d424d91b7c2c65eda7db, type: 3}
-  m_Name: Reflection
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  isHorizontal:
-    m_OverrideState: 1
-    m_Value: 0
-  isVertical:
-    m_OverrideState: 1
-    m_Value: 0
 --- !u!114 &-4696273550558823756
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -112,40 +93,6 @@ MonoBehaviour:
     m_Value: 0
     min: 0
     max: 1
---- !u!114 &-3747708545758857232
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d007cb28f508cf64dab16cf953d8edd6, type: 3}
-  m_Name: RectBlockGlitch
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  noiseSpeed:
-    m_OverrideState: 0
-    m_Value: 0.9
-    min: 0
-    max: 1
-  noiseColorChange:
-    m_OverrideState: 0
-    m_Value: 0.85
-    min: 0
-    max: 1
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-    max: 1
-  glitchScale:
-    m_OverrideState: 0
-    m_Value: 55
-    min: 0
-    max: 150
 --- !u!114 &-2062083146128236098
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -199,41 +146,6 @@ MonoBehaviour:
     m_Value: 0
     min: 0
     max: 100
---- !u!114 &-1160698918256041114
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeaae3b8769eed44f9193c8883f90feb, type: 3}
-  m_Name: Distortion
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  noiseDistortionScale:
-    m_OverrideState: 0
-    m_Value: 0.5
-    min: 0
-    max: 1
-  noiseDistortionPosition:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 1}
-  noiseDistortionPower:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-    max: 1
-  noiseDistortionTimeScale:
-    m_OverrideState: 0
-    m_Value: 5
-    min: 0
-    max: 10
-  barrelDistortionPower:
-    m_OverrideState: 1
-    m_Value: {x: 0, y: 0}
 --- !u!114 &-1031690443465666833
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -286,19 +198,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Cinema Volume Profile
+  m_Name: Cinema GodRay Volume Profile
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 1318538762555446084}
-  - {fileID: 3855981867178952502}
-  - {fileID: -8640660039633269315}
-  - {fileID: 7873810774492686704}
-  - {fileID: 8446389952904887625}
-  - {fileID: -5138188050218079837}
-  - {fileID: -3747708545758857232}
-  - {fileID: -1160698918256041114}
-  - {fileID: 6219089980419373028}
---- !u!114 &1318538762555446084
+  - {fileID: -7385407757357757825}
+  - {fileID: 2441398752741114156}
+  - {fileID: 1195378363643787415}
+--- !u!114 &1195378363643787415
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,20 +213,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
-  m_Name: VisualEnvironment
+  m_Script: {fileID: 11500000, guid: db8a0f38b1204b046b9e956a8be6235e, type: 3}
+  m_Name: RadiationBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
-  skyType:
+  center:
+    m_OverrideState: 0
+    m_Value: {x: 0.5, y: 0.5}
+  power:
     m_OverrideState: 1
-    m_Value: 0
-  skyAmbientMode:
-    m_OverrideState: 0
-    m_Value: 0
-  fogType:
-    m_OverrideState: 0
-    m_Value: 0
+    m_Value: 25.6
+    min: 0
+    max: 100
 --- !u!114 &1533978315674842829
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -406,7 +311,7 @@ MonoBehaviour:
     m_Value: 31
     min: 0
     max: 150
---- !u!114 &3855981867178952502
+--- !u!114 &2441398752741114156
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,19 +320,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a608ed2ba025c641875adce2bf13882, type: 3}
-  m_Name: Mosaic
+  m_Script: {fileID: 11500000, guid: ae7c981926513ae479a3aff37754a8e4, type: 3}
+  m_Name: GodRay
   m_EditorClassIdentifier: 
   active: 1
   m_AdvancedMode: 0
-  scale:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-    max: 100
-  isCircle:
+  power:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
+    min: 0
+    max: 1
+  iteration:
+    m_OverrideState: 1
+    m_Value: 100
+    min: 0
+    max: 150
+  rayDistance:
+    m_OverrideState: 1
+    m_Value: 0.294
+    min: 0
+    max: 1
 --- !u!114 &4405347659257182059
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -479,35 +391,6 @@ MonoBehaviour:
   isCircle:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &6219089980419373028
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7c981926513ae479a3aff37754a8e4, type: 3}
-  m_Name: GodRay
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  power:
-    m_OverrideState: 1
-    m_Value: 0.696
-    min: 0
-    max: 1
-  iteration:
-    m_OverrideState: 1
-    m_Value: 87
-    min: 0
-    max: 150
-  rayDistance:
-    m_OverrideState: 1
-    m_Value: 0.228
-    min: 0
-    max: 1
 --- !u!114 &6291974711227730995
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -565,54 +448,6 @@ MonoBehaviour:
   isCircle:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &7873810774492686704
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e2dae8775b244644af4ad8362618602, type: 3}
-  m_Name: RandomInvert
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  fadeTime:
-    m_OverrideState: 0
-    m_Value: 0.25
-    min: 0
-    max: 3
-  noiseScale:
-    m_OverrideState: 0
-    m_Value: 250
-    min: 0
-    max: 500
-  startInvert:
-    m_OverrideState: 1
-    m_Value: 0
-  easeType: 14
-  isInvert: 0
---- !u!114 &8446389952904887625
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da34fc8e164e6eb498b9e3479836988a, type: 3}
-  m_Name: RGBShift
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  power:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-    max: 100
 --- !u!114 &8709714235974665491
 MonoBehaviour:
   m_ObjectHideFlags: 3

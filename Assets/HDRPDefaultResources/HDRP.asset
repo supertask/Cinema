@@ -309,8 +309,6 @@ MonoBehaviour:
     PublicKeyToken=null
   - Cinema.PostProcessing.Mosaic, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
-  - Cinema.PostProcessing.Negative, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
   - Cinema.PostProcessing.RadiationBlur, Cinema.Postprocessing, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   - Cinema.PostProcessing.RandomInvert, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
@@ -320,6 +318,8 @@ MonoBehaviour:
   - Cinema.PostProcessing.Reflection, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   - Cinema.PostProcessing.RGBShift, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - Cinema.PostProcessing.GodRay, Cinema.Postprocessing, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   virtualTexturingSettings:
     streamingCpuCacheSizeInMegaBytes: 256

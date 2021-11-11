@@ -21,15 +21,13 @@ System Requirements
 Effects
 -------
 
-### Mosaic
-
-![screenshot](./images/mosaic.gif)
-
-**Mosaic** is .. 
-
 ### Radiation Blur
 
 ![screenshot](./images/radiationBlur.gif)
+
+### God ray
+
+![screenshot](./images/GodRay.jpg)
 
 
 ### Distortion
@@ -38,14 +36,17 @@ Noise distortion & Barrel distortion
 
 ![screenshot](./images/noiseDistortion.gif)![screenshot](./images/barrelDistortion.gif)
 
+### Mosaic
+
+![screenshot](./images/mosaic.gif)
+
+**Mosaic** is .. 
+
 ### RGB Shift
 
 ![screenshot](./images/rgbShift.gif)
 
-
 ### Random invert
-
-![screenshot](./images/randomInvert.jpg)
 
 ### Rect Block Glitch
 
