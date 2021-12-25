@@ -491,21 +491,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7c981926513ae479a3aff37754a8e4, type: 3}
   m_Name: GodRay
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   power:
     m_OverrideState: 1
-    m_Value: 0.696
+    m_Value: 1
     min: 0
     max: 1
   iteration:
     m_OverrideState: 1
-    m_Value: 87
+    m_Value: 102
     min: 0
     max: 150
   rayDistance:
     m_OverrideState: 1
-    m_Value: 0.228
+    m_Value: 0.238
     min: 0
     max: 1
 --- !u!114 &6291974711227730995
